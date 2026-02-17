@@ -1,32 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- 
-        ====================================================
-        W-PATH CRYPTOGRAPHIC PROTOCOL
-        ====================================================
-        Author:  Omar El Foudali
-        Email:   elfoudaliomar@yahoo.com
-        Organization: cryptotobank
-        Created: 2026
-        License: MIT
-        Repository: https://github.com/cryptotobank/wpath
-        Ethereum wallet : 0x1675A6b2897a672b9b42D912BedA4b86B583507A
-        ====================================================
-        Mathematical Proof: (k · w) · G = (k · G) · w
-        Recovery Formula: k = k_blinded × w_inv mod n
-        ====================================================
-    -->
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Author Information -->
     <meta name="author" content="Omar El Foudali">
     <meta name="email" content="elfoudaliomar@yahoo.com">
     <meta name="organization" content="cryptotobank">
-    <meta name="created" content="2026">
-    <meta name="description" content="W-Path Cryptographic Key Recovery Protocol - Created by Omar El Foudali">
     
-    <title>🔐 W-Path by Omar El Foudali | Cryptographic Key Recovery</title>
+    <title>W-Path · Cryptographic Key Recovery by Omar El Foudali</title>
     
     <style>
         * {
@@ -36,17 +19,17 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
@@ -54,49 +37,34 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 60px 40px;
             text-align: center;
         }
         
         .header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin-bottom: 10px;
         }
         
-        .header .subtitle {
+        .author-line {
+            margin-top: 20px;
             font-size: 1.2em;
             opacity: 0.9;
         }
         
-        .author-credit {
-            background: #f8f9fa;
-            padding: 15px 30px;
-            text-align: right;
-            border-bottom: 2px solid #667eea;
-            font-family: monospace;
-        }
-        
-        .author-credit a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .author-credit a:hover {
-            text-decoration: underline;
-        }
-        
-        .main-content {
-            padding: 40px 30px;
+        .content {
+            padding: 40px;
         }
         
         .proof-box {
             background: #f0f4f8;
             border-left: 5px solid #667eea;
-            padding: 25px;
+            padding: 30px;
             margin: 30px 0;
             border-radius: 0 10px 10px 0;
             font-family: 'Courier New', monospace;
-            font-size: 1.1em;
+            font-size: 1.3em;
+            text-align: center;
         }
         
         .formula {
@@ -104,9 +72,7 @@
             color: #ffd43b;
             padding: 20px;
             border-radius: 10px;
-            text-align: center;
-            font-size: 1.3em;
-            margin: 20px 0;
+            margin: 10px 0;
         }
         
         .info-grid {
@@ -116,55 +82,36 @@
             margin: 40px 0;
         }
         
-        .info-card {
+        .card {
             background: #f8f9fa;
             padding: 25px;
             border-radius: 10px;
             border-left: 5px solid #28a745;
         }
         
-        .info-card h3 {
-            color: #495057;
+        .card h3 {
             margin-bottom: 15px;
+            color: #495057;
         }
         
-        .value-box {
+        .wallet-box {
             background: #212529;
             color: #ffd43b;
             padding: 15px;
             border-radius: 8px;
-            font-family: 'Courier New', monospace;
+            font-family: monospace;
             word-break: break-all;
-            margin: 10px 0;
-            font-size: 0.9em;
-        }
-        
-        .math-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-        }
-        
-        .math-table th {
-            background: #667eea;
-            color: white;
-            padding: 12px;
-        }
-        
-        .math-table td {
-            padding: 12px;
-            border-bottom: 1px solid #dee2e6;
-            font-family: 'Courier New', monospace;
+            margin: 20px 0;
         }
         
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-block;
+            background: #667eea;
             color: white;
-            border: none;
             padding: 15px 30px;
             border-radius: 8px;
-            font-size: 1.1em;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
             margin: 10px 5px;
             transition: transform 0.2s;
         }
@@ -175,7 +122,7 @@
         }
         
         .btn-success {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            background: #28a745;
         }
         
         .footer {
@@ -190,197 +137,91 @@
             color: #ffd43b;
             text-decoration: none;
         }
-        
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .warning {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-        
-        .github-corner {
-            background: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-            border-top: 2px solid #667eea;
-        }
-        
-        .github-corner a {
-            color: #667eea;
-            font-weight: bold;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Author Credit Line -->
-        <div class="author-credit">
-            Created by <strong>Omar El Foudali</strong> · 
-            <a href="mailto:elfoudaliomar@yahoo.com">elfoudaliomar@yahoo.com</a> · 
-            <a href="https://github.com/cryptotobank" target="_blank">@cryptotobank</a> · 
-            <span style="color: #28a745;">2026</span>
-        </div>
-        
-        <!-- Header -->
         <div class="header">
             <h1>🔐 W-Path</h1>
-            <div class="subtitle">Cryptographic Key Recovery Protocol</div>
-            <div style="margin-top: 20px; font-family: monospace; background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px;">
-                by <strong>Omar El Foudali</strong>
+            <p style="font-size: 1.3em;">Cryptographic Key Recovery Protocol</p>
+            <div class="author-line">
+                Created by <strong>Omar El Foudali</strong> · 2026
             </div>
         </div>
         
-        <!-- Main Content -->
-        <div class="main-content">
-            
-            <!-- Introduction -->
-            <h2 style="color: #495057;">📖 Overview</h2>
-            <p style="margin: 20px 0; line-height: 1.6;">
-                W-Path is a cryptographic key recovery protocol based on the homomorphic properties of 
-                elliptic curve cryptography. It enables secure backup and recovery of private keys for 
-                Bitcoin, Ethereum, and other secp256k1-based blockchains. The protocol was developed by 
-                <strong>Omar El Foudali</strong> in 2026.
-            </p>
-            
-            <!-- The Mathematical Proof -->
-            <h2 style="color: #495057; margin-top: 40px;">🧮 The Mathematical Proof</h2>
+        <div class="content">
             
             <div class="proof-box">
-                <h3 style="margin-bottom: 15px;">The Homomorphic Bridge</h3>
+                <h2 style="color: #495057; margin-bottom: 20px;">🧮 The Homomorphic Bridge</h2>
                 <div class="formula">
                     (k · w) · G = (k · G) · w
                 </div>
-                <p style="margin-top: 15px;">
-                    This fundamental property of elliptic curves allows secure key backup without exposing the private key.
-                </p>
+                <p style="margin-top: 20px;">This mathematical proof enables secure key backup without exposing the private key.</p>
             </div>
             
             <div class="proof-box" style="border-left-color: #28a745;">
-                <h3 style="margin-bottom: 15px;">The Recovery Formula</h3>
+                <h2 style="color: #495057; margin-bottom: 20px;">🔑 Recovery Formula</h2>
                 <div class="formula" style="background: #28a745; color: white;">
                     k = k_blinded × w_inv mod n
                 </div>
-                <p style="margin-top: 15px;">
-                    Where:
-                </p>
-                <ul style="margin-left: 20px;">
-                    <li><code>k</code> = private key (recovered)</li>
-                    <li><code>k_blinded</code> = k × w (can be stored publicly)</li>
-                    <li><code>w</code> = secret backup scalar</li>
-                    <li><code>w_inv</code> = modular inverse of w</li>
-                    <li><code>G</code> = secp256k1 generator point</li>
-                    <li><code>n</code> = curve order</li>
-                </ul>
             </div>
             
-            <!-- Working Example -->
-            <h2 style="color: #495057; margin-top: 40px;">🔑 Working Example</h2>
+            <h2 style="margin: 40px 0 20px;">📊 Project Information</h2>
             
             <div class="info-grid">
-                <div class="info-card">
-                    <h3>📦 W-Path Values</h3>
-                    <div class="value-box">
-                        <strong>k_blinded:</strong><br>
-                        0x19589dace73a97a2161c5863fc8a9a129c92b6d7f130594cc1f45358a43ff699
-                    </div>
-                    <div class="value-box">
-                        <strong>w:</strong><br>
-                        0x766275606ae9d2a52112dc3cb4fd9833cad9675e02c221223ccd6d367f5ba62d
-                    </div>
-                    <div class="value-box">
-                        <strong>w_inv:</strong><br>
-                        0x76df56d55b3f44e605fa3664d6e104bff1d6c7418502befb78d92608a20bd8c9
-                    </div>
+                <div class="card">
+                    <h3>👤 Author</h3>
+                    <p><strong>Omar El Foudali</strong></p>
+                    <p>Email: elfoudaliomar@yahoo.com</p>
+                    <p>Organization: cryptotobank</p>
                 </div>
                 
-                <div class="info-card">
-                    <h3>🔑 Recovered Private Key</h3>
-                    <div class="value-box" style="background: #28a745; color: white;">
-                        <strong>k:</strong><br>
-                        0x2139f02ec19d2243d2f0d1fb4503ab9184ca136f7c31ab1bc78f57fa8141b46b
+                <div class="card">
+                    <h3>🔗 Links</h3>
+                    <p>GitHub: <a href="https://github.com/cryptotobank/wpath">cryptotobank/wpath</a></p>
+                    <p>Discord: W-Path Community</p>
+                    <p>License: MIT</p>
+                </div>
+                
+                <div class="card">
+                    <h3>💰 Rewards Wallet</h3>
+                    <div class="wallet-box">
+                        0x1675A6b2897a672b9b42D912BedA4b86B583507A
                     </div>
-                    <div class="value-box">
-                        <strong>Public Key X:</strong><br>
-                        0xaec0f4dad6c1daf74d845f5e4fc9df54aa70656eac2f8bf01762a75ecb5e052d
-                    </div>
-                    <div class="value-box">
-                        <strong>Public Key Y:</strong><br>
-                        0x33673f748b7e5f4d7d59b724019d8d8c56843fe55ae197b247198196eb874fa7
-                    </div>
+                    <p>All bounties paid from this address</p>
                 </div>
             </div>
             
-            <!-- Verification -->
-            <div class="warning">
-                <strong>✅ Verification:</strong>
-                <p style="margin-top: 10px;">w × w_inv ≡ 1 mod n ✓</p>
-                <p>k = k_blinded × w_inv mod n ✓</p>
-                <p>k_blinded = k × w mod n ✓</p>
-                <p><strong>All mathematical relationships hold!</strong></p>
+            <h2 style="margin: 40px 0 20px;">💻 Get Involved</h2>
+            
+            <div style="text-align: center;">
+                <a href="https://github.com/cryptotobank/wpath" class="btn">⭐ GitHub Repository</a>
+                <a href="https://github.com/cryptotobank/wpath/issues/1" class="btn btn-success">💰 First Bounty: $500</a>
             </div>
             
-            <!-- Mathematical Table -->
-            <h2 style="color: #495057; margin-top: 40px;">📊 Mathematical Relationships</h2>
-            
-            <table class="math-table">
-                <tr><th>Relationship</th><th>Formula</th></tr>
-                <tr><td>Recovery</td><td>k = k_blinded × w_inv mod n</td></tr>
-                <tr><td>Blinding</td><td>k_blinded = k × w mod n</td></tr>
-                <tr><td>Backup</td><td>w = k_blinded × k_inv mod n</td></tr>
-                <tr><td>Inverse</td><td>w × w_inv = 1 mod n</td></tr>
-                <tr><td>Homomorphic Bridge</td><td>(k·w)·G = (k·G)·w</td></tr>
-            </table>
-            
-            <!-- About the Author -->
-            <h2 style="color: #495057; margin-top: 40px;">👤 About the Author</h2>
-            
-            <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                <h3>Omar El Foudali</h3>
-                <p><strong>Email:</strong> elfoudaliomar@yahoo.com</p>
-                <p><strong>Organization:</strong> cryptotobank</p>
-                <p><strong>Created:</strong> 2026</p>
-                <p><strong>Project:</strong> W-Path Cryptographic Protocol</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/cryptotobank" target="_blank">@cryptotobank</a></p>
-                <p><strong>Repository:</strong> <a href="https://github.com/cryptotobank/wpath" target="_blank">github.com/cryptotobank/wpath</a></p>
-            </div>
-            
-            <!-- Buttons -->
-            <div style="text-align: center; margin: 40px 0;">
-                <button class="btn" onclick="window.open('https://github.com/cryptotobank/wpath')">⭐ View on GitHub</button>
-                <button class="btn btn-success" onclick="window.location.href='https://github.com/cryptotobank/wpath/archive/refs/heads/main.zip'">📥 Download Code</button>
-            </div>
-            
-            <!-- GitHub Corner -->
-            <div class="github-corner">
-                <a href="https://github.com/cryptotobank/wpath" target="_blank">
-                    github.com/cryptotobank/wpath
-                </a>
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 10px; margin-top: 40px;">
+                <h3 style="margin-bottom: 20px;">📋 Current Bounties</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="border-bottom: 2px solid #dee2e6;">
+                        <th style="padding: 10px; text-align: left;">Task</th>
+                        <th style="padding: 10px; text-align: left;">Reward</th>
+                        <th style="padding: 10px; text-align: left;">Status</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Improve Documentation</td>
+                        <td style="padding: 10px;">$500</td>
+                        <td style="padding: 10px;"><span style="color: #28a745;">Open</span></td>
+                    </tr>
+                </table>
             </div>
             
         </div>
-     
-        <!-- Footer -->
+        
         <div class="footer">
-            <p>🔐 W-Path Cryptographic Protocol · Created by <strong>Omar El Foudali</strong> · 2026</p>
+            <p>🔐 W-Path · Created by Omar El Foudali · 2026</p>
             <p>Email: <a href="mailto:elfoudaliomar@yahoo.com">elfoudaliomar@yahoo.com</a></p>
-            <p>License: MIT · Organization: cryptotobank</p>
-            <p style="margin-top: 20px;">© 2026 Omar El Foudali. All rights reserved under MIT License.</p>
+            <p style="margin-top: 20px;">© 2026 Omar El Foudali. MIT License.</p>
         </div>
     </div>
-    
-    <script>
-        // Simple console message to show authorship
-        console.log('🔐 W-Path Cryptographic Protocol');
-        console.log('Author: Omar El Foudali');
-        console.log('Email: elfoudaliomar@yahoo.com');
-        console.log('Year: 2026');
-        console.log('Repository: https://github.com/cryptotobank/wpath');
-    </script>
 </body>
 </html>
