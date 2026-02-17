@@ -1,0 +1,63 @@
+name: 💰 Bounty Request
+description: Submit a new bounty task for the W-Path community
+title: "[BOUNTY]: "
+labels: ["bounty", "help-wanted"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🚀 W-Path Bounty Program
+        
+        Thanks for taking the time to create a bounty! All bounties are paid from the official wallet:
+        `0x1675A6b2897a672b9b42D912BedA4b86B583507A`
+  
+  - type: input
+    id: reward
+    attributes:
+      label: 💰 Reward Amount
+      description: What is the bounty reward? (e.g., $500 USD)
+      placeholder: "$500"
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Task Description
+      description: Describe the task in detail
+      placeholder: What needs to be done?
+    validations:
+      required: true
+      
+  - type: textarea
+    id: requirements
+    attributes:
+      label: ✅ Requirements
+      description: List the requirements for completion
+      placeholder: |
+        - Must include documentation
+        - Must pass tests
+        - Must follow coding standards
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: 📊 Difficulty Level
+      options:
+        - Beginner
+        - Intermediate
+        - Advanced
+        - Expert
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 📋 Bounty Terms
+      options:
+        - label: I agree that payment will be sent to the registered wallet address in Discord
+          required: true
