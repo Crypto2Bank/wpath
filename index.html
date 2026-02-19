@@ -9,7 +9,7 @@
     <meta name="email" content="elfoudaliomar@yahoo.com">
     <meta name="organization" content="crypto2bank">
     
-    <title>W-Path · Cryptographic Key Recovery by Omar El Foudali</title>
+    <title>W-Path · Complete Cryptographic Suite by Omar El Foudali</title>
     
     <style>
         * {
@@ -26,46 +26,12 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
-        }
-        
-        /* Navigation Bar */
-        .nav-bar {
-            background: #f8f9fa;
-            padding: 15px 30px;
-            text-align: center;
-            border-bottom: 3px solid #28a745;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav-bar a {
-            color: #28a745;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .nav-bar a:hover {
-            background: #28a745;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .nav-bar .author {
-            color: #6c757d;
-            margin-left: 20px;
-            font-style: italic;
         }
         
         .header {
@@ -81,7 +47,7 @@
         }
         
         .header .subtitle {
-            font-size: 1.2em;
+            font-size: 1.3em;
             opacity: 0.9;
         }
         
@@ -112,103 +78,130 @@
             padding: 20px;
             border-radius: 10px;
             font-family: 'Courier New', monospace;
-            font-size: 1.5em;
+            font-size: 1.8em;
             text-align: center;
             margin: 20px 0;
         }
         
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid #28a745;
-        }
-        
-        .card h3 {
-            margin-bottom: 15px;
+        .section-title {
+            margin: 50px 0 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #28a745;
             color: #495057;
         }
         
-        .wallet-box {
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .tool-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border-left: 5px solid #28a745;
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .tool-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(40,167,69,0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .value-box {
+            background: #212529;
+            color: #ffd43b;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin: 15px 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .example-box {
+            background: #e9ecef;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 2px solid #28a745;
+        }
+        
+        .wallet-address {
             background: #212529;
             color: #ffd43b;
             padding: 15px;
             border-radius: 8px;
             font-family: monospace;
+            font-size: 1.2em;
             word-break: break-all;
-            margin: 20px 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px 5px;
-            transition: transform 0.2s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(40,167,69,0.4);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #28a745;
-            color: #28a745;
-        }
-        
-        .btn-outline:hover {
-            background: #28a745;
-            color: white;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .feature-item {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .feature-icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th {
-            background: #28a745;
-            color: white;
-            padding: 12px;
-        }
-        
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #dee2e6;
-            font-family: 'Courier New', monospace;
+            margin: 15px 0;
         }
         
         .footer {
@@ -223,49 +216,32 @@
             text-decoration: none;
         }
         
-        .footer a:hover {
-            text-decoration: underline;
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
         }
         
-        .example-preview {
-            background: #e9ecef;
+        .info-card {
+            background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-            margin: 30px 0;
-        }
-        
-        .highlight {
-            background: #d4edda;
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: #155724;
+            border-left: 5px solid #28a745;
         }
         
         @media (max-width: 768px) {
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .nav-bar a {
-                margin: 0 5px;
-                font-size: 0.9em;
+            .tool-grid, .info-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Navigation Bar -->
-        <div class="nav-bar">
-            <a href="index.html">🏠 Home</a>
-            <a href="backup.html">📦 Backup</a>
-            <a href="recover.html">🔓 Recovery</a>
-            <a href="example.html">✨ Example</a>
-            <span class="author">by Omar El Foudali</span>
-        </div>
-        
         <div class="header">
             <h1>🔐 W-Path</h1>
-            <div class="subtitle">Cryptographic Key Recovery Protocol</div>
+            <div class="subtitle">Complete Cryptographic Key Recovery Suite</div>
             <div class="author-badge">
                 Created by <strong>Omar El Foudali</strong> · 2026
             </div>
@@ -273,99 +249,131 @@
         
         <div class="content">
             
+            <!-- Mathematical Proof Section -->
             <div class="proof-box">
-                <h2 style="color: #495057; margin-bottom: 20px;">🧮 The Mathematical Foundation</h2>
+                <h2 style="color: #495057;">🧮 The Homomorphic Bridge</h2>
                 <div class="formula">
                     (k · w) · G = (k · G) · w
                 </div>
-                <p style="margin-top: 20px; font-size: 1.1em;">This homomorphic property enables secure key backup without exposing your private key.</p>
-            </div>
-            
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🔐</div>
-                    <h4>Secure Backup</h4>
-                    <p>Store k_blinded anywhere</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <h4>Instant Recovery</h4>
-                    <p>Recover in milliseconds</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔓</div>
-                    <h4>No Trust Required</h4>
-                    <p>Mathematically proven</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌐</div>
-                    <h4>Open Source</h4>
-                    <p>MIT Licensed</p>
-                </div>
-            </div>
-            
-            <h2 style="margin: 40px 0 20px;">📊 Project Information</h2>
-            
-            <div class="info-grid">
-                <div class="card">
-                    <h3>👤 Author</h3>
-                    <p><strong>Omar El Foudali</strong></p>
-                    <p>📧 Email: <a href="mailto:elfoudaliomar@yahoo.com">elfoudaliomar@yahoo.com</a></p>
-                    <p>🏢 Organization: crypto2bank</p>
-                </div>
-                
-                <div class="card">
-                    <h3>🔗 Quick Links</h3>
-                    <p>📦 <a href="backup.html">Create Backup →</a></p>
-                    <p>🔓 <a href="recover.html">Recover Key →</a></p>
-                    <p>✨ <a href="example.html">See Example →</a></p>
-                    <p>📜 <a href="https://github.com/crypto2bank/wpath/blob/main/LICENSE" target="_blank">MIT License</a></p>
-                </div>
-                
-                <div class="card">
-                    <h3>💰 Support This Project</h3>
-                    <p>If W-Path is valuable to you, donations are welcome:</p>
-                    <div class="wallet-box">
-                        0x1675A6b2897a672b9b42D912BedA4b86B583507A
-                    </div>
-                    <p>✨ All donations fund future bounties</p>
-                </div>
-            </div>
-            
-            <h2 style="margin: 40px 0 20px;">✨ Working Example</h2>
-            
-            <div class="example-preview">
-                <p>We've tested W-Path with a real private key. Here's what we got:</p>
-                <table>
-                    <tr><th>Parameter</th><th>Value</th></tr>
-                    <tr><td>Private Key</td><td><span class="highlight">0x739c0dc7...b0f40</span></td></tr>
-                    <tr><td>Secret w</td><td>0x9273ebe0...9d5145</td></tr>
-                    <tr><td>k_blinded</td><td>0xefb5b422...d4434a</td></tr>
-                </table>
-                <p style="margin-top: 15px;">✅ Verified: k = k_blinded × w_inv</p>
-                <a href="example.html" class="btn btn-outline" style="margin-top: 10px;">View Full Example →</a>
-            </div>
-            
-            <h2 style="margin: 40px 0 20px;">📋 Current Bounties</h2>
-            
-            <div style="background: #f8f9fa; padding: 30px; border-radius: 10px;">
-                <table>
-                    <tr><th>Task</th><th>Reward</th><th>Status</th></tr>
-                    <tr>
-                        <td><a href="https://github.com/crypto2bank/wpath/issues/1" target="_blank">Improve Documentation</a></td>
-                        <td>$500</td>
-                        <td><span style="color: #28a745;">🟢 Open</span></td>
-                    </tr>
-                </table>
-                <p style="text-align: center; margin-top: 20px;">
-                    <a href="https://github.com/crypto2bank/wpath/issues" target="_blank" class="btn">View All Bounties</a>
+                <p style="margin-top: 20px; font-size: 1.1em;">
+                    This mathematical proof enables secure key backup without exposing your private key.
                 </p>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <p>🔐 Ready to secure your wallet?</p>
-                <a href="backup.html" class="btn">📦 Create Backup</a>
-                <a href="recover.html" class="btn btn-outline">🔓 Recover Key</a>
+            <!-- Information Cards -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>👤 Creator</h3>
+                    <p><strong>Omar El Foudali</strong></p>
+                    <p>📧 <a href="mailto:elfoudaliomar@yahoo.com">elfoudaliomar@yahoo.com</a></p>
+                    <p>🏢 crypto2bank</p>
+                </div>
+                <div class="info-card">
+                    <h3>📜 License</h3>
+                    <p>MIT License</p>
+                    <p>Copyright (c) 2026</p>
+                    <p>Full commercial rights available</p>
+                </div>
+                <div class="info-card">
+                    <h3>💰 Support</h3>
+                    <p>Donations welcome:</p>
+                    <div class="wallet-address" style="font-size: 0.9em;">
+                        0x1675A6b2897a672b9b42D912BedA4b86B583507A
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools Section -->
+            <h2 class="section-title">🔧 Interactive Tools</h2>
+            
+            <div class="tool-grid">
+                <!-- Tool 1: Backup Generator -->
+                <div class="tool-card">
+                    <div class="tool-icon">📦</div>
+                    <h3>Backup Generator</h3>
+                    <p>Create W-Path backups for any wallet</p>
+                    <div style="margin: 20px 0;">
+                        <div class="input-group">
+                            <label>Private Key (hex)</label>
+                            <input type="text" id="backupKey" placeholder="0x...">
+                        </div>
+                        <button class="btn" onclick="generateBackup()">Generate Backup</button>
+                    </div>
+                    <div id="backupResult" style="font-size: 0.9em; margin-top: 15px;"></div>
+                </div>
+                
+                <!-- Tool 2: Key Recovery -->
+                <div class="tool-card">
+                    <div class="tool-icon">🔓</div>
+                    <h3>Key Recovery</h3>
+                    <p>Recover private key from backup</p>
+                    <div style="margin: 20px 0;">
+                        <div class="input-group">
+                            <label>k_blinded</label>
+                            <input type="text" id="recoverK" placeholder="0x...">
+                        </div>
+                        <div class="input-group">
+                            <label>w</label>
+                            <input type="text" id="recoverW" placeholder="0x...">
+                        </div>
+                        <button class="btn" onclick="recoverKey()">Recover Key</button>
+                    </div>
+                    <div id="recoveryResult" style="font-size: 0.9em; margin-top: 15px;"></div>
+                </div>
+                
+                <!-- Tool 3: Working Example -->
+                <div class="tool-card">
+                    <div class="tool-icon">✨</div>
+                    <h3>Working Example</h3>
+                    <p>Test with a real private key</p>
+                    <button class="btn btn-secondary" onclick="loadExample()">Load Example</button>
+                    <div id="exampleResult" style="margin-top: 20px; font-size: 0.9em;"></div>
+                </div>
+            </div>
+            
+            <!-- Working Example Section (Detailed) -->
+            <h2 class="section-title">✨ Verified Working Example</h2>
+            
+            <div class="example-box">
+                <h3 style="margin-bottom: 20px;">🔑 Private Key: 0x739c0dc74dcae03f93594d158628f607a86b2dc92847547d2584f944450b0f40</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <h4>📦 Generated Backup</h4>
+                        <div class="value-box" style="background: #dc3545;">
+                            <strong>🔒 w (SECRET):</strong><br>
+                            0x9273ebe063515804124071c75dbc22581196914ff79f701d901f54987c9d5145
+                        </div>
+                        <div class="value-box">
+                            <strong>🔓 k_blinded (public):</strong><br>
+                            0xefb5b422a49a3c9178810cab90994d44f100342e3c7d2f00b18a134b0ad4434a
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>✅ Verification</h4>
+                        <div class="success-box" style="margin: 0;">
+                            <p>✅ k = k_blinded × w_inv</p>
+                            <p>✅ w × w_inv = 1 mod n</p>
+                            <p style="margin-top: 10px;">✓ Mathematically proven</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="#" onclick="loadExample()" style="color: #28a745;">Load this example into tools ↑</a>
+                </p>
+            </div>
+            
+            <!-- Security Warning -->
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANT:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Store your <strong>w</strong> value OFFLINE (write on paper!)</li>
+                    <li>Never share your w with anyone</li>
+                    <li>k_blinded can be stored anywhere (even publicly)</li>
+                    <li>All calculations happen in your browser - no data is sent to any server</li>
+                </ul>
             </div>
             
         </div>
@@ -373,12 +381,113 @@
         <div class="footer">
             <p>🔐 W-Path · Created by <strong>Omar El Foudali</strong> · 2026</p>
             <p>📧 <a href="mailto:elfoudaliomar@yahoo.com">elfoudaliomar@yahoo.com</a></p>
-            <p style="margin-top: 20px;">© 2026 Omar El Foudali. MIT License.</p>
+            <p style="margin-top: 20px;">MIT License · Commercial use permitted with attribution</p>
             <p style="margin-top: 10px;">
                 <a href="https://github.com/crypto2bank/wpath" target="_blank">GitHub</a> · 
-                <a href="#">Discord</a>
+                <a href="#" target="_blank">Discord</a>
             </p>
         </div>
     </div>
+
+    <script>
+        const CURVE_ORDER = BigInt('0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141');
+        
+        // Example values
+        const example = {
+            privateKey: "0x739c0dc74dcae03f93594d158628f607a86b2dc92847547d2584f944450b0f40",
+            w: "0x9273ebe063515804124071c75dbc22581196914ff79f701d901f54987c9d5145",
+            kBlinded: "0xefb5b422a49a3c9178810cab90994d44f100342e3c7d2f00b18a134b0ad4434a"
+        };
+
+        function parseHex(hex) {
+            if (!hex) return null;
+            hex = hex.toString().trim();
+            if (hex.startsWith('0x') || hex.startsWith('0X')) {
+                return BigInt(hex);
+            }
+            return BigInt('0x' + hex);
+        }
+
+        function formatHex(bigint) {
+            return '0x' + bigint.toString(16).padStart(64, '0');
+        }
+
+        function modInverse(a, mod) {
+            let b = mod;
+            let x0 = 0n, x1 = 1n;
+            if (mod === 1n) return 0n;
+            while (a > 1n) {
+                let q = a / b;
+                [a, b] = [b, a % b];
+                [x0, x1] = [x1 - q * x0, x0];
+            }
+            return (x1 % mod + mod) % mod;
+        }
+
+        function generateBackup() {
+            const keyHex = document.getElementById('backupKey').value;
+            const key = parseHex(keyHex);
+            
+            if (!key) {
+                document.getElementById('backupResult').innerHTML = '❌ Please enter a valid private key';
+                return;
+            }
+            
+            // Generate random w
+            const bytes = new Uint8Array(32);
+            crypto.getRandomValues(bytes);
+            let w = 0n;
+            for (let i = 0; i < bytes.length; i++) {
+                w = (w << 8n) + BigInt(bytes[i]);
+            }
+            w = w % CURVE_ORDER;
+            
+            const kBlinded = (key * w) % CURVE_ORDER;
+            const wInv = modInverse(w, CURVE_ORDER);
+            
+            document.getElementById('backupResult').innerHTML = `
+                <div style="background: #dc3545; color: white; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                    <strong>🔒 w (SECRET):</strong><br>${formatHex(w)}
+                </div>
+                <div style="background: #28a745; color: white; padding: 10px; border-radius: 5px;">
+                    <strong>🔓 k_blinded:</strong><br>${formatHex(kBlinded)}
+                </div>
+            `;
+        }
+
+        function recoverKey() {
+            const kBlindedHex = document.getElementById('recoverK').value;
+            const wHex = document.getElementById('recoverW').value;
+            
+            const kBlinded = parseHex(kBlindedHex);
+            const w = parseHex(wHex);
+            
+            if (!kBlinded || !w) {
+                document.getElementById('recoveryResult').innerHTML = '❌ Please enter both values';
+                return;
+            }
+            
+            const wInv = modInverse(w, CURVE_ORDER);
+            const k = (kBlinded * wInv) % CURVE_ORDER;
+            
+            document.getElementById('recoveryResult').innerHTML = `
+                <div style="background: #28a745; color: white; padding: 10px; border-radius: 5px;">
+                    <strong>🔑 Recovered Key:</strong><br>${formatHex(k)}
+                </div>
+            `;
+        }
+
+        function loadExample() {
+            document.getElementById('backupKey').value = example.privateKey;
+            document.getElementById('recoverK').value = example.kBlinded;
+            document.getElementById('recoverW').value = example.w;
+            
+            document.getElementById('exampleResult').innerHTML = `
+                <div style="background: #d4edda; color: #155724; padding: 10px; border-radius: 5px;">
+                    ✅ Example loaded! Use the tools above.
+                </div>
+            `;
+        }
+    </script>
 </body>
 </html>
