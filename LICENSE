@@ -1,22 +1,41 @@
-MIT License
+PROPRIETARY SOFTWARE LICENSE
+W-Path Cryptographic Protocol
+Copyright (c) 2026 Omar El Foudali (crypto2bank)
 
-Copyright (c) 2026 Crypto2Bank
+All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This software and associated documentation files (the "Software") are proprietary
+and confidential. Unauthorized copying, distribution, modification, public display,
+or use of this Software, via any medium, is strictly prohibited without the express
+written permission of the copyright holder.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+LICENSING OPTIONS:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-Copyright (c) 2026 Omar El Foudali. Licensed under MIT.
+1. OPEN SOURCE (FREE) - MIT License
+   The core mathematical proof and educational examples are available under the 
+   MIT License in the archived repository. This includes the mathematical proof,
+   basic examples, and documentation.
+
+2. COMMERCIAL LICENSE (PAID)
+   The full production-ready implementation, including:
+   - Complete backup generator
+   - Key recovery system  
+   - BIP39 mnemonic converter
+   - Enterprise integration tools
+   - HSM-compatible modules
+   - Multi-signature support
+   - Priority support and updates
+
+   For commercial licensing inquiries, contact:
+   Omar El Foudali
+   Email: elfoudaliomar@yahoo.com
+
+The Software is provided "AS IS", without warranty of any kind, express or implied,
+including but not limited to the warranties of merchantability, fitness for a
+particular purpose and noninfringement. In no event shall the authors or copyright
+holders be liable for any claim, damages or other liability, whether in an action
+of contract, tort or otherwise, arising from, out of or in connection with the
+Software or the use or other dealings in the Software.
+
+For licensing terms, pricing, and enterprise support:
+📧 elfoudaliomar@yahoo.com
