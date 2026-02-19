@@ -19,8 +19,8 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -34,22 +34,64 @@
             overflow: hidden;
         }
         
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Navigation Bar */
+        .nav-bar {
+            background: #f8f9fa;
+            padding: 15px 30px;
+            text-align: center;
+            border-bottom: 3px solid #28a745;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-bar a {
+            color: #28a745;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .nav-bar a:hover {
+            background: #28a745;
             color: white;
-            padding: 60px 40px;
+            transform: translateY(-2px);
+        }
+        
+        .nav-bar .author {
+            color: #6c757d;
+            margin-left: 20px;
+            font-style: italic;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 40px 30px;
             text-align: center;
         }
         
         .header h1 {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 10px;
         }
         
-        .author-line {
-            margin-top: 20px;
+        .header .subtitle {
             font-size: 1.2em;
             opacity: 0.9;
+        }
+        
+        .author-badge {
+            margin-top: 20px;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
         }
         
         .content {
@@ -58,13 +100,10 @@
         
         .proof-box {
             background: #f0f4f8;
-            border-left: 5px solid #667eea;
-            padding: 30px;
+            border-left: 5px solid #28a745;
+            padding: 25px;
             margin: 30px 0;
             border-radius: 0 10px 10px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 1.3em;
-            text-align: center;
         }
         
         .formula {
@@ -72,7 +111,10 @@
             color: #ffd43b;
             padding: 20px;
             border-radius: 10px;
-            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5em;
+            text-align: center;
+            margin: 20px 0;
         }
         
         .info-grid {
@@ -106,10 +148,10 @@
         
         .btn {
             display: inline-block;
-            background: #667eea;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
             padding: 15px 30px;
-            border-radius: 8px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             margin: 10px 5px;
@@ -117,12 +159,56 @@
         }
         
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(40,167,69,0.4);
         }
         
-        .btn-success {
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #28a745;
+            color: #28a745;
+        }
+        
+        .btn-outline:hover {
             background: #28a745;
+            color: white;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .feature-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: #28a745;
+            color: white;
+            padding: 12px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+            font-family: 'Courier New', monospace;
         }
         
         .footer {
@@ -130,7 +216,6 @@
             color: #adb5bd;
             text-align: center;
             padding: 30px;
-            margin-top: 30px;
         }
         
         .footer a {
@@ -138,22 +223,50 @@
             text-decoration: none;
         }
         
-        a {
-            color: #667eea;
-            text-decoration: none;
+        .footer a:hover {
+            text-decoration: underline;
         }
         
-        a:hover {
-            text-decoration: underline;
+        .example-preview {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .highlight {
+            background: #d4edda;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #155724;
+        }
+        
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-bar a {
+                margin: 0 5px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+            <a href="index.html">🏠 Home</a>
+            <a href="backup.html">📦 Backup</a>
+            <a href="recover.html">🔓 Recovery</a>
+            <a href="example.html">✨ Example</a>
+            <span class="author">by Omar El Foudali</span>
+        </div>
+        
         <div class="header">
             <h1>🔐 W-Path</h1>
-            <p style="font-size: 1.3em;">Cryptographic Key Recovery Protocol</p>
-            <div class="author-line">
+            <div class="subtitle">Cryptographic Key Recovery Protocol</div>
+            <div class="author-badge">
                 Created by <strong>Omar El Foudali</strong> · 2026
             </div>
         </div>
@@ -161,17 +274,33 @@
         <div class="content">
             
             <div class="proof-box">
-                <h2 style="color: #495057; margin-bottom: 20px;">🧮 The Homomorphic Bridge</h2>
+                <h2 style="color: #495057; margin-bottom: 20px;">🧮 The Mathematical Foundation</h2>
                 <div class="formula">
                     (k · w) · G = (k · G) · w
                 </div>
-                <p style="margin-top: 20px;">This mathematical proof enables secure key backup without exposing the private key.</p>
+                <p style="margin-top: 20px; font-size: 1.1em;">This homomorphic property enables secure key backup without exposing your private key.</p>
             </div>
             
-            <div class="proof-box" style="border-left-color: #28a745;">
-                <h2 style="color: #495057; margin-bottom: 20px;">🔑 Recovery Formula</h2>
-                <div class="formula" style="background: #28a745; color: white;">
-                    k = k_blinded × w_inv mod n
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <h4>Secure Backup</h4>
+                    <p>Store k_blinded anywhere</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h4>Instant Recovery</h4>
+                    <p>Recover in milliseconds</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔓</div>
+                    <h4>No Trust Required</h4>
+                    <p>Mathematically proven</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h4>Open Source</h4>
+                    <p>MIT Licensed</p>
                 </div>
             </div>
             
@@ -186,10 +315,11 @@
                 </div>
                 
                 <div class="card">
-                    <h3>🔗 Links</h3>
-                    <p>📦 <strong>GitHub:</strong> <a href="https://github.com/crypto2bank/wpath" target="_blank">crypto2bank/wpath</a></p>
-                    <p>💬 <strong>Discord:</strong> <a href="#" target="_blank">W-Path Community</a></p>
-                    <p>📜 <strong>License:</strong> <a href="https://github.com/crypto2bank/wpath/blob/main/LICENSE" target="_blank">MIT</a></p>
+                    <h3>🔗 Quick Links</h3>
+                    <p>📦 <a href="backup.html">Create Backup →</a></p>
+                    <p>🔓 <a href="recover.html">Recover Key →</a></p>
+                    <p>✨ <a href="example.html">See Example →</a></p>
+                    <p>📜 <a href="https://github.com/crypto2bank/wpath/blob/main/LICENSE" target="_blank">MIT License</a></p>
                 </div>
                 
                 <div class="card">
@@ -198,41 +328,57 @@
                     <div class="wallet-box">
                         0x1675A6b2897a672b9b42D912BedA4b86B583507A
                     </div>
-                    <p>✨ All donations fund future bounties!</p>
+                    <p>✨ All donations fund future bounties</p>
                 </div>
             </div>
             
-            <h2 style="margin: 40px 0 20px;">💻 Get Involved</h2>
+            <h2 style="margin: 40px 0 20px;">✨ Working Example</h2>
             
-            <div style="text-align: center;">
-                <a href="https://github.com/crypto2bank/wpath" class="btn">⭐ GitHub Repository</a>
-                <a href="https://github.com/crypto2bank/wpath/issues/1" class="btn btn-success">💰 First Bounty: $500</a>
+            <div class="example-preview">
+                <p>We've tested W-Path with a real private key. Here's what we got:</p>
+                <table>
+                    <tr><th>Parameter</th><th>Value</th></tr>
+                    <tr><td>Private Key</td><td><span class="highlight">0x739c0dc7...b0f40</span></td></tr>
+                    <tr><td>Secret w</td><td>0x9273ebe0...9d5145</td></tr>
+                    <tr><td>k_blinded</td><td>0xefb5b422...d4434a</td></tr>
+                </table>
+                <p style="margin-top: 15px;">✅ Verified: k = k_blinded × w_inv</p>
+                <a href="example.html" class="btn btn-outline" style="margin-top: 10px;">View Full Example →</a>
             </div>
             
-            <div style="background: #f8f9fa; padding: 30px; border-radius: 10px; margin-top: 40px;">
-                <h3 style="margin-bottom: 20px;">📋 Current Bounties</h3>
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr style="border-bottom: 2px solid #dee2e6;">
-                        <th style="padding: 10px; text-align: left;">Task</th>
-                        <th style="padding: 10px; text-align: left;">Reward</th>
-                        <th style="padding: 10px; text-align: left;">Status</th>
-                    </tr>
+            <h2 style="margin: 40px 0 20px;">📋 Current Bounties</h2>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 10px;">
+                <table>
+                    <tr><th>Task</th><th>Reward</th><th>Status</th></tr>
                     <tr>
-                        <td style="padding: 10px;"><a href="https://github.com/crypto2bank/wpath/issues/1" target="_blank" style="color: #667eea;">Improve Documentation</a></td>
-                        <td style="padding: 10px;">$500</td>
-                        <td style="padding: 10px;"><span style="color: #28a745;">Paused</span></td>
+                        <td><a href="https://github.com/crypto2bank/wpath/issues/1" target="_blank">Improve Documentation</a></td>
+                        <td>$500</td>
+                        <td><span style="color: #28a745;">🟢 Open</span></td>
                     </tr>
                 </table>
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="https://github.com/crypto2bank/wpath/issues" target="_blank" class="btn">View All Bounties</a>
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p>🔐 Ready to secure your wallet?</p>
+                <a href="backup.html" class="btn">📦 Create Backup</a>
+                <a href="recover.html" class="btn btn-outline">🔓 Recover Key</a>
             </div>
             
         </div>
         
         <div class="footer">
-            <p>🔐 W-Path · Created by Omar El Foudali · 2026</p>
+            <p>🔐 W-Path · Created by <strong>Omar El Foudali</strong> · 2026</p>
             <p>📧 <a href="mailto:elfoudaliomar@yahoo.com">elfoudaliomar@yahoo.com</a></p>
             <p style="margin-top: 20px;">© 2026 Omar El Foudali. MIT License.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/crypto2bank/wpath" target="_blank">GitHub</a> · 
+                <a href="#">Discord</a>
+            </p>
         </div>
     </div>
 </body>
-
 </html>
