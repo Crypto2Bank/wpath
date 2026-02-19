@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Author Information -->
+    <meta name="author" content="Omar El Foudali">
+    <meta name="email" content="elfoudaliomar@yahoo.com">
+    <meta name="organization" content="crypto2bank">
+    
+    <title>W-Path Working Example · by Omar El Foudali</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .author-badge {
+            margin-top: 20px;
+            font-size: 1.1em;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .info-box {
+            background: #f0f4f8;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .value-box {
+            background: #212529;
+            color: #ffd43b;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin: 15px 0;
+        }
+        
+        .secret-box {
+            background: #dc3545;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin: 15px 0;
+            border: 2px solid #ffd43b;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: #28a745;
+            color: white;
+            padding: 12px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .formula {
+            background: #212529;
+            color: #ffd43b;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 1.3em;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .footer {
+            background: #212529;
+            color: #adb5bd;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .footer a {
+            color: #ffd43b;
+            text-decoration: none;
+        }
+        
+        .nav-bar {
+            background: #f8f9fa;
+            padding: 15px 30px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-bar a {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <a href="index.html">🏠 Home</a>
+            <a href="backup.html">📦 Backup Generator</a>
+            <a href="recover.html">🔓 Recovery</a>
+            <a href="example.html" style="color: #28a745;">✨ Working Example</a>
+        </div>
+
+        <div class="header">
+            <h1>✨ W-Path Working Example</h1>
+            <div class="subtitle">A real-world demonstration with a valid private key</div>
+            <div class="author-badge">
+                Created by <strong>Omar El Foudali</strong> · 2026
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <div class="info-box">
+                <h3>🔑 Input Private Key</h3>
+                <p>This is a real, valid private key that we'll use to demonstrate W-Path:</p>
+                <div class="value-box">
+                    0x739c0dc74dcae03f93594d158628f607a86b2dc92847547d2584f944450b0f40
+                </div>
+            </div>
+
+            <div class="formula">
+                k = k_blinded × w_inv mod n
+            </div>
+
+            <h3>📦 Generated W-Path Backup Values</h3>
+            
+            <table>
+                <tr><th>Parameter</th><th>Value</th><th>Status</th></tr>
+                <tr>
+                    <td>Secret w</td>
+                    <td class="secret-box" style="background: #dc3545;">0x9273ebe063515804124071c75dbc22581196914ff79f701d901f54987c9d5145</td>
+                    <td>🔒 SECRET</td>
+                </tr>
+                <tr>
+                    <td>k_blinded (public)</td>
+                    <td class="value-box" style="background: #28a745;">0xefb5b422a49a3c9178810cab90994d44f100342e3c7d2f00b18a134b0ad4434a</td>
+                    <td>✅ PUBLIC</td>
+                </tr>
+                <tr>
+                    <td>w_inv (verification)</td>
+                    <td class="value-box">0xe055463e83f0cdb5ba406ac062e2467dc5920a815c5a1f71ac9436620480274f</td>
+                    <td>✅ VERIFY</td>
+                </tr>
+            </table>
+
+            <div class="success-box">
+                <h3 style="color: #155724;">✅ Mathematical Verification</h3>
+                <p><strong>k = k_blinded × w_inv mod n</strong></p>
+                <p>Recovered private key: 0x739c0dc74dcae03f93594d158628f607a86b2dc92847547d2584f944450b0f40</p>
+                <p><strong>w × w_inv = 1 mod n</strong> ✓</p>
+                <p style="margin-top: 15px;">This proves the mathematical relationship works perfectly!</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANT:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>The secret <strong>w</strong> value shown here is for demonstration only</li>
+                    <li>In practice, you would generate your own random w</li>
+                    <li>Never share your real w with anyone</li>
+                    <li>Store w offline (write on paper!)</li>
+                </ul>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                <h4>🔍 Try It Yourself</h4>
+                <p>Use our <a href="backup.html">Backup Generator</a> to create backups for your own wallets!</p>
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 Omar El Foudali · MIT License</p>
+            <p>🔐 W-Path Cryptographic Protocol · <a href="https://github.com/crypto2bank/wpath">GitHub</a></p>
+        </div>
+    </div>
+</body>
+</html>
